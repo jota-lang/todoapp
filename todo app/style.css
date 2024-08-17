@@ -1,0 +1,99 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins";
+    background-color: rgb(221, 218, 210);
+}
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1em;
+    border-radius: 15px;
+}
+.background{
+    width: 40em ;
+    height: 10em;
+    padding: 30px 0px 30px 50px;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: white;
+}
+.background2{
+    width: 30em ;
+    max-height: 50em;
+    padding: 10px  0px 20px 0px;
+    flex-direction: column;
+    border-radius: 15px;
+    font-size: 16px;
+    background-color: white;
+    padding: 30px 0px 0px 50px;
+}
+#title{
+    font-size: 28px;
+    font-weight: 400;
+    margin-right: 10em;
+    margin-bottom: 10px;
+}
+.inputTask{
+    background-color: white;
+}
+#addTask{
+    border-radius: 40px 0px 0px 40px;
+    height: 3em;
+    width: 20em;
+    font-size: 16px;
+    padding-left: 20px;
+    border: 0;
+    outline: none;
+    background-color: rgb(214, 214, 214);
+}
+#buttonAdd{
+    border-radius: 0px 40px 40px 0px;
+    height: 3em;
+    width: 5em;
+    font-size: 16px;
+    border: 0;
+    background-color: rgb(156, 63, 63);
+    color: white;
+}
+h1{
+    background-color:white;
+}
+#checkLabel{
+    background-color: white;
+    margin-left: 8px;
+    font-size: 16px;
+    max-lines: 1;
+}
+#linhaCheckbox{
+    display: flex;
+    background-color: white;
+    margin-right: 22em;
+    align-items: center;
+}
+#buttonAdd:active{
+    background-color: rgb(110, 27, 27);
+}
+input[type="checkbox"] {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 5px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+input[type="checkbox"]:checked + label{
+    text-decoration: line-through;
+    color:green;
+}
+.fa-solid{
+    background-color: white;
+    color: rgb(156, 63, 63);
+    position: fixed;
+    margin-left: 390px;
+    font-size: 24px;
+}
