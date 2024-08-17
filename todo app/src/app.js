@@ -35,7 +35,7 @@ function adicionarTarefa(valor) {
 
     const deleteIcon = document.createElement('i');
     deleteIcon.htmlFor = checkbox.id;
-    deleteIcon.className = 'fa-solid fa-trash'
+    deleteIcon.className = 'fa-regular fa-trash-can'
     
 
     linha.appendChild(checkbox);
