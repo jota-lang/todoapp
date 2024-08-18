@@ -16,7 +16,24 @@ botao.addEventListener('click',()=>{
 function adicionarTarefa(valor) {
     
     if(valor === '') {
-        alert('Insira uma tarefas');
+        const modal = document.createElement('dialog')
+        modal.innerHTML = `
+        <h2>Atenção!</h2>
+        <p id="dialog-text">Preencha o campo para adicionar uma tarefa.</p>
+        <div class="dialog-buttons">
+            <button id="close-dialog">Close</button>
+        </div>
+    `;
+        container.appendChild(modal);
+        const fecharModal = document.getElementById('close-dialog');
+        
+        fecharModal.addEventListener('click',()=>{
+            modal.close();
+            modal.remove();
+        })
+
+        
+        modal.showModal();
         return;
     }
 

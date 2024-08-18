@@ -97,3 +97,42 @@ input[type="checkbox"]:checked + label{
     margin-left: 390px;
     font-size: 24px;
 }
+dialog{
+    max-height: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    position: fixed;
+    margin-left: 570px;
+    margin-top: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#close-dialog{
+    padding: 5px 20px 5px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color:  rgb(156, 63, 63);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 200px;
+}
+.dialog-buttons{
+    background-color: white;
+}
+h2{
+    font-weight: 400;
+    font-size: 28px;
+    background-color: white;
+    color:  rgb(156, 63, 63);
+}
+#dialog-text{
+    background-color: white;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 300;
+}
