@@ -36,7 +36,7 @@
 #title{
     font-size: 28px;
     font-weight: 400;
-    margin-right: 7.2em;
+    margin-right: 20px;
     margin-bottom: 10px;
 }
 .inputTask{
@@ -89,7 +89,7 @@ input[type="checkbox"] {
     min-width: 25px;
     height: 25px;
     margin-right: 10px;
-    border: 2px solid #ccc;
+    border: 2px solid #838383;
     border-radius: 50%;
     cursor: pointer;
     appearance: none; 
@@ -100,6 +100,10 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
     background-color: rgb(156, 63, 63); 
     border: 2px solid rgb(156, 63, 63); 
+}
+input[type="checkbox"]:checked + label {
+    color: #838383;
+    text-decoration: line-through;
 }
 input[type="checkbox"]::after {
     content: "✔";
@@ -137,11 +141,19 @@ input[type="checkbox"]:checked::after {
 .fa-solid:active{
     background-color: rgb(110, 27, 27);
 }
+.fa-check{
+    background-color: white;
+    color: rgb(156, 63, 63);
+    padding-bottom: 10px;
+    margin-right: 10px;
+    font-size: 24px;
+}
 dialog{
     max-height: auto;
-    padding: 20px 20px 20px 10px;
+    padding: 10px 20px 20px 10px;
     border-radius: 10px;
-    border: 1px solid  rgb(165, 165, 165);
+    border: none;
+    box-shadow: 1px 8px 30px rgb(124, 124, 124);
     background-color: white;
     position: fixed;
     margin-left: 570px;
@@ -152,20 +164,27 @@ dialog{
     flex-direction: column;
 }
 #close-dialog{
-    padding: 5px 20px 5px 20px;
     border: none;
     border-radius: 5px;
-    background-color:  rgb(156, 63, 63);
+    background-color:  rgb(255, 255, 255);
     color: white;
-    font-size: 14px;
-    font-weight: 500;
-    margin-left: 250px;
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 340px;
+    height: 20px;
+}
+.fa-xmark{
+    color: rgb(182, 182, 182);
+    background-color:white;
+}
+.fa-xmark:active{
+    background-color: white;
 }
 .dialog-buttons{
     background-color: white;
 }
 h2{
-    font-weight: 400;
+    font-weight: 500;
     font-size: 28px;
     background-color: white;
     color:  rgb(156, 63, 63);
@@ -180,25 +199,17 @@ h2{
     display: flex;
     width: 40px;
     height: 40px;
-    margin-right: 4px;
-    border-radius: 50px 0px 0px 50px;
+    border-radius: 50%;
     align-items: center;
     justify-content: center;
     background-color: rgb(223, 223, 223);
 }
-#contagem-concluidas{
-    display: flex;
-    width: 40px;
-    height: 40px;
-    border-radius: 0px 50px 50px 0px;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(223, 223, 223);
-}
+
 #titulo-background{
     background-color: white;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 #quantidade-tarefas{
     font-size: 16px;
@@ -206,10 +217,18 @@ h2{
     background-color: rgb(223, 223, 223) ;
     color: rgb(156, 63, 63);
 }
+#quantidade-tarefas-concluidas{
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgb(255, 255, 255) ;
+    color: rgb(156, 63, 63);
+    margin-left: 30px;
+}
 #title-table{
     background-color: white;
     display: flex;
     margin-bottom: 5px;
+    align-items: center;
 }
 #concluir{
     background-color: white;
@@ -218,14 +237,14 @@ h2{
 #tarefa{
     font-size: 14px;
     font-weight: 500;
-    margin-left: 30px;
+    margin-left: 5px;
     color:rgb(155, 155, 155);
     background-color: white;
 }
 #excluir{
     font-size: 14px;
     font-weight: 500;
-    margin-left:290px;
+    margin-left:260px;
     color: rgb(155, 155, 155);
     background-color: white;
 }
@@ -242,4 +261,29 @@ h2{
     50% { transform: translateX(2px); }
     75% { transform: translateX(-2px); }
     100% { transform: translateX(0); }
+}
+/* Estilo para o contêiner da barra de progresso */
+.progress {
+    width: 230px;
+    background-color: #e0e0e0; /* Cor de fundo da barra */
+    border-radius: 50px;
+    height: 30px; /* Altura da barra de progresso */
+    overflow: hidden;
+}
+
+/* Estilo para a barra de progresso real */
+.progress-bar {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: 0px 50px 50px 0px;
+    background-color: rgb(156, 63, 63);/* Cor da barra de progresso */
+    width: 0%; /* Inicia com a largura de 0%, será ajustada via JavaScript ou CSS */
+    transition: width 0.3s ease; /* Transição suave ao alterar a largura */
+}
+.progress-text{
+    position: fixed;
+    padding-left: 100px;
+    background-color: transparent;
+    color: white;
 }

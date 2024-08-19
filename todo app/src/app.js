@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const botao = document.getElementById('buttonAdd');
     const inputTarefa = document.getElementById('addTask');
     const container = document.querySelector('.background2');
-
-    const quantidadeTarefas  = document.getElementById('quantidade-tarefas');
-
+    const quantidadeTarefasConcluidas = document.getElementById('quantidade-tarefas-concluidas')
+    const barraDeProgresso = document.querySelector('.progress-bar');
+    const numProgresso = document.querySelector('.progress-text')
 
     let count = 0;
     let valores = []
@@ -23,10 +23,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(valor === '') {
             const modal = document.createElement('dialog')
             modal.innerHTML = `
-            <h2>Atenção!</h2>
-            <p id="dialog-text">Preencha o campo para adicionar uma tarefa.</p>
-        <div class="dialog-buttons">
-            <button id="close-dialog">Close</button>
+            <button id="close-dialog">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+                <h2>Atenção!</h2>
+            <p id="dialog-text">Preencha o campo 
+            para adicionar uma tarefa.</p>
+            <div class="dialog-buttons">
             </div>
             `;
             container.appendChild(modal);
@@ -49,6 +52,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         checkbox.id = `checkbox${count}`
         checkbox.name = `checkbox${count}`
         checkbox.addEventListener('change', tarefasConcluídas);
+    
 
         const newLabel = document.createElement('label');
         newLabel.id = 'checkLabel'
@@ -59,11 +63,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         deleteIcon.htmlFor = checkbox.id;
         deleteIcon.className = 'fa-regular fa-trash-can'
 
-        deleteIcon.addEventListener('click',()=>{
-            linha.remove();
-            espaco.remove();
-        });
-        
         linha.appendChild(checkbox);
         linha.appendChild(newLabel);
         linha.appendChild(deleteIcon);
@@ -72,13 +71,27 @@ document.addEventListener('DOMContentLoaded', ()=>{
         const espaco = document.createElement('br');
         container.appendChild(espaco);
 
-        count++
+        count++;
         inputTarefa.value = '';
+
+        deleteIcon.addEventListener('click',()=>{
+            linha.remove();
+            count--;
+            quantidadeTarefasConcluidas.textContent = count;
+            tarefasConcluídas()
+            espaco.remove();
+        });
+        quantidadeTarefasConcluidas.textContent = count;
     }
 
     function tarefasConcluídas() {
         const checkboxes = container.querySelectorAll('input[type="checkbox"]');
         const contagem = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-        quantidadeTarefas.textContent = contagem;
+        
+        const porcentagem = (contagem/count) * 100
+        
+        barraDeProgresso.style.width = `${porcentagem}%`
+        numProgresso.textContent = `${Math.round(porcentagem)}%`;
+        barraDeProgresso.setAttribute('aria-valuenow', porcentagem);
     }
 })
