@@ -20,6 +20,7 @@
     flex-direction: column;
     border-radius: 15px;
     background-color: white;
+    box-shadow: 1px 8px 30px rgb(124, 124, 124);
 }
 .background2{
     width: 30em ;
@@ -30,34 +31,40 @@
     font-size: 16px;
     background-color: white;
     padding: 30px 0px 0px 50px;
+    box-shadow: 1px 8px 30px rgb(124, 124, 124);
 }
 #title{
     font-size: 28px;
     font-weight: 400;
-    margin-right: 10em;
+    margin-right: 7.2em;
     margin-bottom: 10px;
 }
 .inputTask{
     background-color: white;
+    
 }
 #addTask{
-    border-radius: 40px 0px 0px 40px;
+    border-radius: 10px 0px 0px 10px;
     height: 3em;
     width: 20em;
+    margin-top: 10px;
     font-size: 16px;
     padding-left: 20px;
-    border: 0;
+    border: none;
     outline: none;
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(223, 223, 223);
+    
 }
 #buttonAdd{
     border-radius: 0px 40px 40px 0px;
     height: 3em;
     width: 5em;
     font-size: 16px;
-    border: 0;
+    font-weight: 500;
+    border: none;
     background-color: rgb(156, 63, 63);
     color: white;
+    
 }
 h1{
     background-color:white;
@@ -66,7 +73,7 @@ h1{
     background-color: white;
     margin-left: 8px;
     font-size: 16px;
-    max-lines: 1;
+    white-space: nowrap;
 }
 #linhaCheckbox{
     display: flex;
@@ -79,16 +86,39 @@ h1{
 }
 input[type="checkbox"] {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    min-width: 25px;
+    height: 25px;
     margin-right: 10px;
-    border: 5px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 50%;
     cursor: pointer;
+    appearance: none; 
+    background-color: #fff;
+    outline: none;
+    position: relative;
 }
-input[type="checkbox"]:checked + label{
-    text-decoration: line-through;
-    color:green;
+input[type="checkbox"]:checked {
+    background-color: rgb(156, 63, 63); 
+    border: 2px solid rgb(156, 63, 63); 
+}
+input[type="checkbox"]::after {
+    content: "✔";
+    font-size: 14px;
+    color: white; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 10px; 
+    height: 10px; 
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transform: translate(-50%, -50%); 
+    opacity: 0; 
+    transition: opacity 0.2s; 
+}
+input[type="checkbox"]:checked::after {
+    opacity: 1;
 }
 .fa-regular{
     background-color: white;
@@ -96,12 +126,22 @@ input[type="checkbox"]:checked + label{
     position: fixed;
     margin-left: 390px;
     font-size: 24px;
+    cursor: pointer;
+}
+.fa-regular:hover{
+    animation: shake 0.5s ease-in-out;
+}
+.fa-solid {
+    background-color: rgb(156, 63, 63);
+}
+.fa-solid:active{
+    background-color: rgb(110, 27, 27);
 }
 dialog{
-    max-height: fit-content;
-    padding: 20px;
+    max-height: auto;
+    padding: 20px 20px 20px 10px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid  rgb(165, 165, 165);
     background-color: white;
     position: fixed;
     margin-left: 570px;
@@ -119,7 +159,7 @@ dialog{
     color: white;
     font-size: 14px;
     font-weight: 500;
-    margin-left: 200px;
+    margin-left: 250px;
 }
 .dialog-buttons{
     background-color: white;
@@ -135,4 +175,71 @@ h2{
     padding: 20px;
     font-size: 14px;
     font-weight: 300;
+}
+#contagem{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    margin-right: 4px;
+    border-radius: 50px 0px 0px 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(223, 223, 223);
+}
+#contagem-concluidas{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 0px 50px 50px 0px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(223, 223, 223);
+}
+#titulo-background{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+#quantidade-tarefas{
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgb(223, 223, 223) ;
+    color: rgb(156, 63, 63);
+}
+#title-table{
+    background-color: white;
+    display: flex;
+    margin-bottom: 5px;
+}
+#concluir{
+    background-color: white;
+    color: rgb(155, 155, 155);
+}
+#tarefa{
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 30px;
+    color:rgb(155, 155, 155);
+    background-color: white;
+}
+#excluir{
+    font-size: 14px;
+    font-weight: 500;
+    margin-left:290px;
+    color: rgb(155, 155, 155);
+    background-color: white;
+}
+#separador{
+    background-color: rgb(155, 155, 155);
+    width: 430px;
+    height: 1px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
 }

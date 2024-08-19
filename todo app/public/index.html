@@ -13,16 +13,31 @@
 <body>
     <div class="container">
         <div class="background">
-            <h1 id="title">To-do List</h1>
+            <div id="titulo-background">
+                <h1 id="title">To-do List</h1>
+                <div id="contagem">
+                    <span id="quantidade-tarefas"> 0 </span>
+                </div>
+                <div id="contagem-concluidas">
+                    <span id="quantidade-tarefas"> 0 </span>
+                </div>
+            </div>
             <div class="inputTask">
-                <input type="text" id="addTask" placeholder="Add Task here" required>
-                <button type="submit" id="buttonAdd"> Add</button>
+                <input type="text" id="addTask" placeholder="Adcione a tarefa aqui" required>
+                <button type="submit" id="buttonAdd">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
             </div>
         </div>
         <div class="background2">
+            <div id="title-table">
+                <span id="concluir">✔</span>
+                <span id="tarefa">Tarefa</span>
+                <span id="excluir">Excluir</span>
+            </div>
+            <div id="separador"> </div>
         </div>
     </div>
-   
     <script src="/src/app.js"></script>
 </body>
 </html>
