@@ -127,8 +127,6 @@ input[type="checkbox"]:checked::after {
 .fa-regular{
     background-color: white;
     color: rgb(156, 63, 63);
-    position: fixed;
-    margin-left: 390px;
     font-size: 24px;
     cursor: pointer;
 }
@@ -140,6 +138,14 @@ input[type="checkbox"]:checked::after {
 }
 .fa-solid:active{
     background-color: rgb(110, 27, 27);
+}
+.fa-pen-to-square{
+    position: fixed;
+    margin-left: 335px;
+}
+.fa-trash-can{
+    position: fixed;
+    margin-left: 390px;
 }
 .fa-check{
     background-color: white;
@@ -172,6 +178,44 @@ dialog{
     font-weight: 400;
     margin-left: 340px;
     height: 20px;
+}
+#close-dialog-alterar{
+    border: none;
+    border-radius: 5px;
+    background-color:  rgb(255, 255, 255);
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 340px;
+    height: 20px;
+}
+#dialog-text-alterar{
+    margin-right: 196px;
+    font-size: 14px;
+    background-color: white;
+}
+#textoAlterado{
+    height: 30px;
+    width: 300px;
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 5px;
+    margin: 5px 0px 20px 0px;
+    background-color: white;
+    padding-left: 10px;
+    font-size: 16px;
+}
+#botaoAlterar{
+    min-height: 30px;
+    min-width: none;
+    border-radius: 20px;
+    border: none;
+    background-color:rgb(156, 63, 63);
+    color: white;
+    font-size: 12px;
+    padding:10px 15px 10px 15px;
+}
+#botaoAlterar:active{
+    background-color: rgb(110, 27, 27);
 }
 .fa-xmark{
     color: rgb(182, 182, 182);
@@ -244,8 +288,15 @@ h2{
 #excluir{
     font-size: 14px;
     font-weight: 500;
-    margin-left:260px;
+    margin-left: 10px;
     color: rgb(155, 155, 155);
+    background-color: white;
+}
+#alterar{
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 200px;
+    color:rgb(155, 155, 155);
     background-color: white;
 }
 #separador{
@@ -285,5 +336,5 @@ h2{
     position: fixed;
     padding-left: 100px;
     background-color: transparent;
-    color: white;
+    color: rgb(0, 0, 0);
 }

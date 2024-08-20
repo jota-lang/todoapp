@@ -8,14 +8,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const numProgresso = document.querySelector('.progress-text')
 
     let count = 0;
-    let valores = []
 
     botao.addEventListener('click',()=>{
-
         const valor = inputTarefa.value.trim();
         adicionarTarefa(valor);
-        valores.push(valor);
-        console.log(valores)
     })
 
     function adicionarTarefa(valor) {
@@ -59,20 +55,58 @@ document.addEventListener('DOMContentLoaded', ()=>{
         newLabel.htmlFor = checkbox.id;
         newLabel.textContent = valor;
 
+        const updateIcon = document.createElement('i');
+        updateIcon.htmlFor = checkbox.id;
+        updateIcon.className = 'fa-regular fa-pen-to-square'
+
         const deleteIcon = document.createElement('i');
         deleteIcon.htmlFor = checkbox.id;
         deleteIcon.className = 'fa-regular fa-trash-can'
 
         linha.appendChild(checkbox);
         linha.appendChild(newLabel);
+        linha.appendChild(updateIcon);
         linha.appendChild(deleteIcon);
-
+        
         container.appendChild(linha);
         const espaco = document.createElement('br');
         container.appendChild(espaco);
 
         count++;
         inputTarefa.value = '';
+
+        updateIcon.addEventListener('click',()=>{
+
+            const modalAlterar = document.createElement('dialog')
+            modalAlterar.innerHTML = `
+            <button id="close-dialog-alterar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <p id="dialog-text-alterar">Nome da Tarefa:</p>
+            <input id="textoAlterado"type="text"></input>
+            <button id="botaoAlterar">Alterar Registro</button>
+            <div class="dialog-buttons">
+            </div>`;
+
+            container.appendChild(modalAlterar);
+            const fecharModalAlterar = document.getElementById('close-dialog-alterar');
+
+            fecharModalAlterar.addEventListener('click',()=>{
+                modalAlterar.close();
+                modalAlterar.remove();
+            })
+
+            const botaoAlterar = document.getElementById('botaoAlterar')
+
+            botaoAlterar.addEventListener('click',()=>{
+                alterarTarefa(newLabel);
+            })
+
+            modalAlterar.showModal();
+            return;
+        })
+
+       
 
         deleteIcon.addEventListener('click',()=>{
             linha.remove();
@@ -82,6 +116,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             espaco.remove();
         });
         quantidadeTarefasConcluidas.textContent = count;
+
     }
 
     function tarefasConcluídas() {
@@ -93,5 +128,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
         barraDeProgresso.style.width = `${porcentagem}%`
         numProgresso.textContent = `${Math.round(porcentagem)}%`;
         barraDeProgresso.setAttribute('aria-valuenow', porcentagem);
+
+        if (parseFloat(barraDeProgresso.style.width) >= 50) {
+            numProgresso.style.color = 'white';
+        }else{
+            numProgresso.style.color = 'black';
+        }
+    }
+
+    function alterarTarefa(textoAlteravel) {
+        const novoTexto = textoAlterado.value;
+        textoAlteravel.textContent = novoTexto;
     }
 })
